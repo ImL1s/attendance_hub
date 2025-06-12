@@ -107,10 +107,10 @@ class BackgroundService {
       final initialDelay = clockInTime.difference(now);
 
       // 設置上班打卡的定期任務（每24小時一次）
-      await Workmanager().registerPeriodicTask(
+      await Workmanager().registerOneOffTask(
         clockInTaskName,
         clockInTaskName,
-        frequency: const Duration(hours: 24),
+        //frequency: const Duration(hours: 24),
         initialDelay: initialDelay,
         existingWorkPolicy: ExistingWorkPolicy.replace,
         tag: "clock_in",
@@ -150,10 +150,10 @@ class BackgroundService {
       final initialDelay = clockOutTime.difference(now);
 
       // 設置下班打卡的定期任務（每24小時一次）
-      await Workmanager().registerPeriodicTask(
+      await Workmanager().registerOneOffTask(
         clockOutTaskName,
         clockOutTaskName,
-        frequency: const Duration(hours: 24),
+        //frequency: const Duration(hours: 24),
         initialDelay: initialDelay,
         existingWorkPolicy: ExistingWorkPolicy.replace,
         tag: "clock_out",
